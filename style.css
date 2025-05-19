@@ -1,0 +1,328 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  color: #2c3e50;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background-color: #34495e;
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  user-select: none;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none; /* ensure no underline */
+  display: inline-block;
+  /* Blinking animation */
+  animation: blinking-glow 2.5s ease-in-out infinite;
+}
+
+.logo:hover {
+  color: #ffd580;
+  transform: scale(1.1);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  box-shadow: inset 0 0 0 0 #ff9800;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  background-color: #ff9800;
+  color: #fff;
+  box-shadow: 0 0 10px #ff9800;
+  transform: scale(1.05);
+}
+
+/* Blinking animation keyframes */
+@keyframes blinking-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 5px #90d9f7,
+      0 0 10px #90d9f7,
+      0 0 20px #90d9f7,
+      0 0 40px #414242;
+    color: #fff;
+  }
+  50% {
+    text-shadow: none;
+    color: #90d9f7;
+  }
+}
+
+/* Apply blinking glow to headings */
+h2, h3, h4 {
+  animation: blinking-glow 2.5s ease-in-out infinite;
+  cursor: default;
+}
+
+/* Hero Section */
+.hero {
+  flex: 1 0 auto;
+  height: calc(100vh - 65px);
+  background: linear-gradient(135deg, #1f4037, #99f2c8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  color: #fff;
+  user-select: none;
+}
+
+.hero .heading {
+  font-size: 3.8rem;
+  font-weight: 900;
+  margin-bottom: 25px;
+  text-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: default;
+}
+
+.hero .heading:hover {
+  color: #ffd580;
+  transform: scale(1.1);
+}
+
+.profile {
+  margin-top: 20px;
+}
+
+.profile-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 5px solid white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+
+.profile-img:hover {
+  transform: scale(1.15);
+}
+
+/* Section Common Styles */
+.section {
+  max-width: 900px;
+  background: white;
+  margin: 60px auto;
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.section:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+/* Background gradient animation for About, Projects, Contact */
+@keyframes bg-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* About Section Background Animation */
+.about-section {
+  background: linear-gradient(270deg, #99f2c8, #1f4037, #99f2c8, #1f4037);
+  background-size: 800% 800%;
+  animation: bg-gradient 20s ease infinite;
+  color: #fff;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+/* About text style overrides */
+.about-section p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  color: #e0f7f1;
+  transition: color 0.3s ease;
+}
+
+.about-section p:hover {
+  color: #ffdd59;
+  cursor: default;
+}
+
+/* Projects Section Background Animation */
+.projects-section {
+  background: linear-gradient(270deg, #fbc7a4, #f7b733, #fbc7a4, #f7b733);
+  background-size: 800% 800%;
+  animation: bg-gradient 25s ease infinite;
+  color: #4b3f2f;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+/* Projects list styling */
+.project-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 25px;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  padding: 25px 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 2px solid transparent;
+  user-select: none;
+  color: #34495e;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  border-color: #ff9800;
+}
+
+/* Project card headings */
+.project-card h4 {
+  margin-bottom: 12px;
+  font-weight: 700;
+  color: #ff9800;
+}
+
+/* Contact Section Background Animation */
+.contact-section {
+  background: linear-gradient(270deg, #89f7fe, #66a6ff, #89f7fe, #66a6ff);
+  background-size: 800% 800%;
+  animation: bg-gradient 22s ease infinite;
+  color: #102840;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+
+.contact-list {
+  list-style: none;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.contact-list li {
+  margin-bottom: 18px;
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 15px 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px; /* reduced space between label and link */
+}
+
+.contact-list li:hover {
+  background-color: #ff9800;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(255, 152, 0, 0.6);
+}
+
+.contact-list li:hover a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.contact-list span {
+  font-weight: 700;
+  min-width: 90px; /* fixed width for label alignment */
+}
+
+/* Footer */
+footer {
+  background-color: #34495e;
+  text-align: center;
+  padding: 12px 20px;
+  color: white;
+  user-select: none;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links li {
+    margin: 8px 10px;
+  }
+
+  .hero {
+    height: auto;
+    padding: 60px 20px;
+  }
+
+  .hero .heading {
+    font-size: 2.8rem;
+  }
+
+  .profile-img {
+    width: 140px;
+    height: 140px;
+  }
+}
